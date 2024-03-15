@@ -170,3 +170,10 @@ starts_with:
 .yes:
     mov rax, 1
     ret
+
+;exchange bytes in a word
+
+macro exchange_word_bytes word_arg {
+    mov ax, word_arg
+    xchg al, ah
+}

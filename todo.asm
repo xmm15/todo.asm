@@ -33,7 +33,10 @@ main:
 
     funcall2 write_cstr, STDOUT, bind_trace_msg
     mov word [servaddr.sin_family], AF_INET
-    mov word [servaddr.sin_port], 14619
+
+    exchange_word_bytes(6969)
+
+    mov word [servaddr.sin_port], ax
     mov dword [servaddr.sin_addr], INADDR_ANY
     bind [sockfd], servaddr.sin_family, sizeof_servaddr
     cmp rax, 0
